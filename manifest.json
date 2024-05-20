@@ -1,0 +1,12 @@
+{
+  "namespace": "Abevol",
+  "name": "GoldenPom",
+  "description": "Allow pom to upgrade rarity.",
+  "version_number": "0.0.1",
+  "dependencies": [
+    "SGG_Modding-DemonDaemon-1.0.1",
+    "SGG_Modding-ModUtil-3.1.1"
+  ],
+  "website_url": "https://github.com/abevol/GoldenPom",
+  "FullName": "Abevol-GoldenPom"
+}
