@@ -1,8 +1,8 @@
 # Golden Pom
 
-Allow pom to upgrade rarity when it upgrade level.
+Allows Pom to upgrade Boon's rarity while leveling it up.
 
-It allows you to customize the effective chance.
+It also allows you to customize the effective chance.
 
 ## Features
 
