@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2024-05-21
+
 ### Fixed
 
 - Compatible with Chalk-2.0.2
@@ -17,5 +19,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First version of the mod!
 
-[unreleased]: https://github.com/abevol/GoldenPom/compare/0.0.1...HEAD
+[unreleased]: https://github.com/abevol/GoldenPom/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/abevol/GoldenPom/compare/0.0.1...1.0.0
 [0.0.1]: https://github.com/abevol/GoldenPom/compare/61c0d02f8e98da3998326a045d6668aa21f412b2...0.0.1
