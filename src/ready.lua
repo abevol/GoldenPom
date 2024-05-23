@@ -11,6 +11,14 @@ ModUtil.mod.Path.Wrap("CreateUpgradeChoiceButton", function(base, screen, lootDa
 	return patch_CreateUpgradeChoiceButton(base, screen, lootData, itemIndex, itemData)
 end)
 
-ModUtil.mod.Path.Wrap("HandleUpgradeChoiceSelection", function(base, screen, button, args)
-	return patch_HandleUpgradeChoiceSelection(base, screen, button, args)
+-- ModUtil.mod.Path.Wrap("HandleUpgradeChoiceSelection", function(base, screen, button, args)
+-- 	return patch_HandleUpgradeChoiceSelection(base, screen, button, args)
+-- end)
+
+-- ModUtil.mod.Path.Wrap("UseStoreRewardRandomStack", function(base, args)
+-- 	return patch_UseStoreRewardRandomStack(base, args)
+-- end)
+
+ModUtil.mod.Path.Wrap("IncreaseTraitLevel", function(base, traitData, stacks)
+	return patch_IncreaseTraitLevel(base, traitData, stacks)
 end)

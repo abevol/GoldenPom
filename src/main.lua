@@ -34,6 +34,40 @@ Config = Chalk.auto 'config.lua'
 -- ^ this updates our `.cfg` file in the config folder!
 public.config = Config -- so other mods can access our config
 
+function printMsg(fmt, ...)
+    if not Config.Debug then return end
+    local text = string.format(fmt, ...)
+    local green = "\x1b[32m"
+    local reset = "\x1b[0m"
+    print(green .. text .. reset)
+end
+
+function dumpTable(tbl, indent)
+    local result = ""
+    if not tbl then return result end
+    if not indent then indent = 0 end
+
+    local keys = {}
+    for k in pairs(tbl) do
+        keys[#keys + 1] = k
+    end
+
+    table.sort(keys, function(a, b)
+        return tostring(a) < tostring(b)
+    end)
+
+    for _, k in ipairs(keys) do
+        local v = tbl[k]
+        local formatting = string.rep("  ", indent) .. tostring(k) .. ": "
+        if type(v) == "table" then
+            result = result .. formatting .. "\n" .. dumpTable(v, indent + 1)
+        else
+            result = result .. formatting .. tostring(v) .. "\n"
+        end
+    end
+    return result
+end
+
 local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if Config.Enabled == false then return end

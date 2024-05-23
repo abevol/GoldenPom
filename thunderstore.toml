@@ -4,7 +4,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Abevol"
 name = "GoldenPom"
-versionNumber = "1.0.2"
+versionNumber = "1.0.3"
 description = "Allows Pom to upgrade Boon's rarity while leveling it up."
 websiteUrl = "https://github.com/abevol/GoldenPom"
 containsNsfwContent = false
