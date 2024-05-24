@@ -7,10 +7,11 @@
 
 local function GetUpgradedTraitRarity( traitData, stacks, rarityUpgradeOrder )
 	stacks = stacks or 1
-    local newRarity = traitData.Rarity
+    local newRarity = traitData.Rarity or "Common"
     for _ = 1, stacks do
         local temp = Game.GetUpgradedRarity(newRarity, rarityUpgradeOrder)
-        if (temp == nil) then break end
+        if not temp then break end
+        if not traitData.RarityLevels then break end
         if traitData.RarityLevels[temp] == nil then break end
         newRarity = temp
     end
@@ -87,7 +88,7 @@ end
 function patch_IncreaseTraitLevel(base, traitData, stacks)
     stacks = stacks or 1
     -- printMsg("[patch_IncreaseTraitLevel] traitData: \n%s\n", dumpTable(traitData))
-    if Game.RandomChance(Config.UpgradeRarityChance) then
+    if traitData and Game.RandomChance(Config.UpgradeRarityChance) then
         local newRarity = GetUpgradedTraitRarity(traitData, stacks)
         if newRarity ~= traitData.Rarity then
             printMsg("[patch_IncreaseTraitLevel] traitData.Name: %s, traitData.Slot: %s, traitData.Rarity: %s, newRarity: %s",
