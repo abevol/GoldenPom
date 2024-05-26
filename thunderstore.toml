@@ -4,13 +4,13 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "Abevol"
 name = "GoldenPom"
-versionNumber = "1.0.4"
+versionNumber = "1.0.5"
 description = "Allows Pom to upgrade Boon's rarity while leveling it up."
 websiteUrl = "https://github.com/abevol/GoldenPom"
 containsNsfwContent = false
 
 [package.dependencies]
-Hell2Modding-Hell2Modding = "1.0.28"
+Hell2Modding-Hell2Modding = "1.0.30"
 SGG_Modding-ENVY = "1.0.1"
 SGG_Modding-Chalk = "2.1.1"
 SGG_Modding-ReLoad = "1.0.2"

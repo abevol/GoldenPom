@@ -30,7 +30,7 @@ function patch_CreateUpgradeChoiceButton(base, screen, lootData, itemIndex, item
             -- printMsg("[CreateUpgradeChoiceButton] lootData.Name: %s, itemData.Name: %s, itemData.ItemName: %s, itemData.Rarity: %s, newRarity: %s",
             -- lootData.Name, itemData.Name, itemData.ItemName, itemData.Rarity, newRarity)
             if newRarity ~= traitData.Rarity then
-                screen.RarityText.RawText = string.format("{$Keywords.%s}{!Icons.RightArrow}{$Keywords.%s}", traitData.Rarity, newRarity)
+                screen.RarityText.RawText = string.format("{$Keywords.%s}{!Icons.RightArrow}{$Keywords.%s}", traitData.Rarity or "Common", newRarity)
             end
         end
     end
@@ -44,7 +44,8 @@ function patch_CreateUpgradeChoiceButton(base, screen, lootData, itemIndex, item
 end
 
 local function AssignRarityTrait( traitData, newRarity )
-    if traitData.RarityLevels[newRarity] == nil then return end
+    if not traitData.RarityLevels then return traitData end
+    if traitData.RarityLevels[newRarity] == nil then return traitData end
 
     local persistentValues = {}
     for i, key in pairs( Game.PersistentTraitKeys ) do
@@ -90,7 +91,7 @@ function patch_IncreaseTraitLevel(base, traitData, stacks)
     -- printMsg("[patch_IncreaseTraitLevel] traitData: \n%s\n", dumpTable(traitData))
     if traitData and Game.RandomChance(Config.UpgradeRarityChance) then
         local newRarity = GetUpgradedTraitRarity(traitData, stacks)
-        if newRarity ~= traitData.Rarity then
+        if newRarity ~= traitData.Rarity and newRarity ~= "Common" then
             printMsg("[patch_IncreaseTraitLevel] traitData.Name: %s, traitData.Slot: %s, traitData.Rarity: %s, newRarity: %s",
             traitData.Name, traitData.Slot, traitData.Rarity, newRarity)
             traitData = AssignRarityTrait(traitData, newRarity)
